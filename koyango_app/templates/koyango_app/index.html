@@ -1,0 +1,18 @@
+{% extends 'koyango_app/base.html' %}
+{% load static %}
+{% block main_content %}
+
+<h1>Django app "Koyango"</h1>
+<br>
+<p>This is a simple Django based app, which has 3 main functionalities - Calendar, Notes and World Time.</p>
+<p>Use the navbar above to navigate between each functionality.</p>
+<br>
+<p>Calendar only shows the days for selected month.</p>
+<br>
+<p>World Time shows current time for popularly used time zones.</p>
+<br>
+<p>Notes allow for storing notes and assigning them a category.</p>
+<br>
+<img src='{% static "koyango_app/FubukiHappy.png" %}' alt="There should be a image here...">
+
+{% endblock %}

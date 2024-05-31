@@ -1,0 +1,11 @@
+{% extends 'koyango_app/base.html' %}
+
+{% block main_content %}
+<h1> Note </h1>
+<h2> {{ note.title }}</h2>
+<strong> Status: </strong> {{ note.get_status_display }} <br>
+<strong> Date: </strong> {{ note.note_date|date:"Y-m-d" }}  <br>
+<strong> Category: </strong> <a href="{% url 'category' note.category.id %}"> {{ note.category.name }} </a><br>
+<p> {{ note.body }} </p>
+<button type="button" class="btn btn-primary"><a class="link-light link-underline-opacity-0" href="{% url 'update-note' note.id %}">Edit note</a></button> <button type="button" class="btn btn-primary"><a class="link-light link-underline-opacity-0" href="{% url 'delete-note' note.id %}">Delete note</a></button>
+{% endblock %}

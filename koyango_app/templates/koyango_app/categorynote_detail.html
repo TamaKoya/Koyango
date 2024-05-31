@@ -1,0 +1,14 @@
+{% extends 'koyango_app/base.html' %}
+
+{% block main_content %}
+<h1>Category details: {{ object.name }}</h1>
+<ul>
+    {% for note in object.note_set.all %}
+    <li><a href="{% url 'note' note.id %}"> {{ note.title }} </a></li>
+    {% endfor %}
+</ul>
+<button type="button" class="btn btn-primary"><a class="link-light link-underline-opacity-0" href="{% url 'update-category' object.id %}">Edit category</a></button>
+{% if not object.note_set.exists %}
+<button type="button" class="btn btn-primary"><a class="link-light link-underline-opacity-0" href="{% url 'delete-category' object.id %}">Delete category</a></button>
+{% endif %}
+{% endblock %}

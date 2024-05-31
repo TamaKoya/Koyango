@@ -1,0 +1,9 @@
+{% extends 'koyango_app/base.html' %}
+
+{% block main_content %}
+<h1> Deleting: {{ object }} </h1>
+<form method="POST">
+ {% csrf_token %}
+ <div> <input type="submit" class="btn btn-outline-primary" value="Yes, Delete"> <button type="button" class="btn btn-danger"><a class="link-light link-underline-opacity-0" href="{{ cancel_url }}">No, go back.</a></button></div>
+</form>
+{% endblock %}

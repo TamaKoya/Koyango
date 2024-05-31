@@ -1,0 +1,39 @@
+{% extends 'koyango_app/base.html' %}
+
+{% block main_content %}
+
+<h1 style="text-align: center; margin:0 auto;"> {{ days.0|date:"F" }} </h1>
+<br>
+<div style="text-align: center; margin:0 auto;">
+<button type="button" class="btn btn-primary"><a class="link-light link-underline-opacity-0" href="{% url 'calendar' 1 %}">January</a></button>
+<button type="button" class="btn btn-primary"><a class="link-light link-underline-opacity-0" href="{% url 'calendar' 2 %}">February</a></button>
+<button type="button" class="btn btn-primary"><a class="link-light link-underline-opacity-0" href="{% url 'calendar' 3 %}">March</a></button>
+<button type="button" class="btn btn-primary"><a class="link-light link-underline-opacity-0" href="{% url 'calendar' 4 %}">April</a></button>
+<button type="button" class="btn btn-primary"><a class="link-light link-underline-opacity-0" href="{% url 'calendar' 5 %}">May</a></button>
+<button type="button" class="btn btn-primary"><a class="link-light link-underline-opacity-0" href="{% url 'calendar' 6 %}">June</a></button>
+<button type="button" class="btn btn-primary"><a class="link-light link-underline-opacity-0" href="{% url 'calendar' 7 %}">July</a></button>
+<button type="button" class="btn btn-primary"><a class="link-light link-underline-opacity-0" href="{% url 'calendar' 8 %}">August</a></button>
+<button type="button" class="btn btn-primary"><a class="link-light link-underline-opacity-0" href="{% url 'calendar' 9 %}">September</a></button>
+<button type="button" class="btn btn-primary"><a class="link-light link-underline-opacity-0" href="{% url 'calendar' 10 %}">October</a></button>
+<button type="button" class="btn btn-primary"><a class="link-light link-underline-opacity-0" href="{% url 'calendar' 11 %}">November</a></button>
+<button type="button" class="btn btn-primary"><a class="link-light link-underline-opacity-0" href="{% url 'calendar' 12 %}">December</a></button>
+</div>
+<br>
+<table style="text-align: center; margin:0 auto;">
+    <thead><tr><th>Day of the month</th><th>Day of the week</th></tr></thead>
+    <tbody>
+    {% for day in days %}
+      <tr><td style="{% if day.isoweekday == 7 %} color:red;
+                     {% elif day.isoweekday == 6 %} color:orange;
+                     {% endif %}"> {{ day.day }} </td>
+          <td style="{% if day == today %} color:#0000ee;
+                      {% elif day.isoweekday == 7 %} color:red;
+                      {% elif day.isoweekday == 6 %} color:orange;
+                      {% endif %}"> {{ day|date:"l" }} </td>
+      </tr>
+    {% endfor %}
+    </tbody>
+</table>
+<br>
+
+{% endblock %}

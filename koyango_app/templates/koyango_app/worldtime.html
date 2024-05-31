@@ -1,0 +1,21 @@
+{% extends 'koyango_app/base.html' %}
+
+{% block main_content %}
+<div style="text-align: center; margin:0 auto;">
+    <h1>World Time</h1>
+        <br>
+    <p>PDT/PST:<br> {{ tz_usa_west }}</p>
+        <br>
+    <p>EDT/EST:<br> {{ tz_usa_east }}</p>
+        <br>
+    <p>GMT/UTC:<br> {{ tz_utc }}</p>
+        <br>
+    <p>CEST/CET:<br> {{ tz_europe }}</p>
+        <br>
+    <p>CST:<br> {{ tz_china }}</p>
+        <br>
+    <p>JST:<br> {{ tz_japan }}</p>
+        <br>
+    <p>AEST:<br> {{ tz_australia }}</p>
+</div>
+{% endblock %}

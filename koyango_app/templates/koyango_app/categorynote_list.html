@@ -1,0 +1,12 @@
+{% extends 'koyango_app/base.html' %}
+
+{% block main_content %}
+<h1> Categories </h1>
+<ul>
+    {% for category in object_list %}
+    <li> <a href="{% url 'category' category.id %}"> {{ category.name }} </a> ({{ category.note_set.count }})</li>
+    {% empty %}
+        <li>No categories</li>
+    {% endfor %}
+</ul>
+{% endblock %}

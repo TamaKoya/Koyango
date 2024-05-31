@@ -1,0 +1,9 @@
+{% extends 'koyango_app/base.html' %}
+
+{% block main_content %}
+<form method="POST">
+    {{ form }}
+    {% csrf_token %}
+    <div><input type="submit" class="btn btn-primary" value="Add/Update"> <button type="button" class="btn btn-danger"><a class="link-light link-underline-opacity-0" href="{% url 'notes' %}">Cancel</a></button> </div>
+</form>
+{% endblock %}
